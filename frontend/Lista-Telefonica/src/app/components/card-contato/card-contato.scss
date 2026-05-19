@@ -1,0 +1,31 @@
+$cor-fundo-cartao: rgb(182, 199, 255);
+$cor-botao-contato: #44FF44;
+
+.borda{
+    background-color: $cor-fundo-cartao;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 5px;
+
+    *{
+        margin: 0;
+    }
+}
+
+.botao-contato{
+    padding: 5px;
+    align-self: center;
+    width: fit-content;
+    color: black;
+    background-color: $cor-botao-contato;
+    border: 1px solid black;
+    border-radius: 5000px;
+    text-decoration: none;
+
+    &:hover{
+        filter: brightness(0.80);
+    }
+}
