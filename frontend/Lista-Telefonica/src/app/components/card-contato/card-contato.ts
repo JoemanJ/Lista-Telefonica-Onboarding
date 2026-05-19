@@ -12,7 +12,7 @@ export class CardContato {
 
   // Se telefone for "+55 (12) 93456 7890", retorna "5512934567890"
   getTelefoneSomenteNumero(): string{
-    const numeros = this.telefone().match(/\d+/g)?.[0];
+    const numeros = this.telefone().match(/\d+/g)?.join('');
     return numeros?? "Desconhecido";
   }
 }
