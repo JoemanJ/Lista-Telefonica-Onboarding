@@ -1,4 +1,4 @@
-export  interface Contato {
-    nome: string;
-    telefone: string;
+export interface Contato {
+  nome: string;
+  telefone: string;
 }
