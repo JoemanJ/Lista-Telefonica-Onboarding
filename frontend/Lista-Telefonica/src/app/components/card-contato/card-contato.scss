@@ -1,38 +1,38 @@
 $cor-fundo-cartao: rgb(182, 199, 255);
-$cor-botao-contato: #44FF44;
+$cor-botao-contato: #44ff44;
 
-.borda{
-    margin: 10px;
-    background-color: $cor-fundo-cartao;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 5px;
+.borda {
+  background-color: $cor-fundo-cartao;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 
-    *{
-        margin: 3px;
-    }
+  * {
+    margin: 3px;
+  }
 }
 
-.nome{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.nome {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.botao-contato{
-    padding: 5px;
-    align-self: center;
-    width: fit-content;
-    color: black;
-    background-color: $cor-botao-contato;
-    border: 1px solid black;
-    border-radius: 5000px;
-    text-decoration: none;
+.botao-contato {
+  padding: 5px;
+  align-self: center;
+  width: fit-content;
+  color: black;
+  background-color: $cor-botao-contato;
+  border: 1px solid black;
+  border-radius: 5000px;
+  text-decoration: none;
 
-    &:hover{
-        filter: brightness(0.80);
-    }
+  &:hover {
+    filter: brightness(0.8);
+  }
 }
