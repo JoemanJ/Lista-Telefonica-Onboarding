@@ -1,0 +1,13 @@
+<form [formGroup]="formulario" (ngSubmit)="salvarContato()">
+  <label for="input-nome">Nome:</label>
+  <input type="text" id="input-nome" name="nome" formControlName="nome" placeholder="Nome" />
+  <label for="input-telefone">Telefone:</label>
+  <input
+    type="text"
+    id="input-telefone"
+    name="nome"
+    formControlName="telefone"
+    placeholder="(DDD) 99999 9999"
+  />
+  <button type="submit" [disabled]="!formulario.valid">Salvar Contato</button>
+</form>
