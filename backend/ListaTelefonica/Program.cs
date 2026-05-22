@@ -1,10 +1,10 @@
-using Microsoft.EntityFrameworkCore;
-//using AutoMapper;
 using ListaTelefonica.Data;
-using ListaTelefonica.Models;
-//using ListaTelefonica.Services;
+using ListaTelefonica.Mappings;
 using ListaTelefonica.Repositories;
-//using System;
+using ListaTelefonica.Repositories.Interfaces;
+using ListaTelefonica.Services;
+using ListaTelefonica.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +18,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //// Configuração centralizada via IOptions<T>
 //builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
-//// Registrar Services e Repositories com diferentes lifetimes
-//builder.Services.AddScoped<IContatoRepository, ProdutoRepository>();
-//builder.Services.AddScoped<IContatoService, ContatoService>();
+// Registrar Services e Repositories com diferentes lifetimes
+builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
+builder.Services.AddScoped<IContatoService, ContatoService>();
 
-//// Configurar AutoMapper para mapeamento de Entities em DTOs
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// Configurar AutoMapper para mapeamento de Entities em DTOs
+builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile));
 
 // Adicionar Controllers
 builder.Services.AddControllers();
