@@ -29,7 +29,7 @@ namespace ListaTelefonica.Data
                     .HasMaxLength(100);
 
                 entity.Property(e => e.Telefone)
-                    .HasMaxLength(50);
+                    .IsRequired();
             });
         }
     }
