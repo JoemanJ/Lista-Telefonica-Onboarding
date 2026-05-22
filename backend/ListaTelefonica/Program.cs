@@ -1,13 +1,51 @@
+using Microsoft.EntityFrameworkCore;
+//using AutoMapper;
+using ListaTelefonica.Data;
+using ListaTelefonica.Models;
+//using ListaTelefonica.Services;
+using ListaTelefonica.Repositories;
+//using System;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Configuração de Logging
+builder.Logging.AddConsole();
+
+// Adicionar DbContext ao container de DI
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//// Configuração centralizada via IOptions<T>
+//builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
+//// Registrar Services e Repositories com diferentes lifetimes
+//builder.Services.AddScoped<IContatoRepository, ProdutoRepository>();
+//builder.Services.AddScoped<IContatoService, ContatoService>();
+
+//// Configurar AutoMapper para mapeamento de Entities em DTOs
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Adicionar Controllers
+builder.Services.AddControllers();
+
+//// Configurar CORS para aceitar requisições de origem específica
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", policy =>
+//    {
+//        policy.AllowAnyOrigin()
+//              .AllowAnyMethod()
+//              .AllowAnyHeader();
+//    });
+//});
+
+// Swagger/OpenAPI para documentação da API
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -16,29 +54,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+//// Aplicar política de CORS
+//app.UseCors("AllowAll");
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

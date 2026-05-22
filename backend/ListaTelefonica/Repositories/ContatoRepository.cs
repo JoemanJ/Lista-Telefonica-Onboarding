@@ -31,7 +31,7 @@ namespace ListaTelefonica.Repositories
         /// Método GET - Safe e Idempotente
         /// Obtém um contato específico pelo Id
         /// </summary>
-        public async Task<Contato> ObterPorIdAsync(int id)
+        public async Task<Contato?> ObterPorIdAsync(int id)
         {
             return await _context.Contatos.FirstOrDefaultAsync(c => c.Id == id);
         }
@@ -51,7 +51,7 @@ namespace ListaTelefonica.Repositories
         /// Método PUT - Idempotente
         /// Atualiza um contato existente
         /// </summary>
-        public async Task<Contato> AtualizarAsync(Contato contato)
+        public async Task<Contato?> AtualizarAsync(Contato contato)
         {
             var contatoExistente = await _context.Contatos.FirstOrDefaultAsync(p => p.Id == contato.Id);
 
