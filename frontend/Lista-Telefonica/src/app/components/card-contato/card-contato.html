@@ -1,5 +1,32 @@
 <div class="borda">
-    <p class="nome" title="{{nome()}}">Contato: {{nome()}}</p>
-    <p class="telefone" title="{{telefone()}}">Número: {{telefone()}}</p>
-    <a class="botao-contato" href="https://wa.me/{{getTelefoneSomenteNumero()}}">Enviar mensagem</a>
+    <!-- Apresentação normal -->
+    @if (!editando && !excluindo) {
+        <p class="nome" title="{{nome()}}">Contato: {{nome()}}</p>
+        <p class="telefone" title="{{telefone()}}">Número: {{telefone()}}</p>
+        <a class="botao-contato" href="https://wa.me/{{getTelefoneSomenteNumero()}}">Enviar mensagem</a>
+        
+        <span class="modificacoes">
+            <button class="botao-editar" (click)="alternarEdicao()">editar</button>
+            <button class="botao-excluir" (click)="alternarExclusao()">excluir</button>
+        </span>
+    }
+
+    @else if (editando) {
+        <input type="text" [(value)]="nomeEdit">
+        <input type="text" [(value)]="telefoneEdit">
+
+        <span class="botoes-editando">
+            <button (click)="alternarEdicao()">cancelar</button>
+            <button (click)="confirmarEdicao()">confirmar</button>
+        </span>
+    }
+
+    @else if (excluindo) {
+        <h4>Tem certeza que deseja excluir {{nome()}} dos contatos?</h4>
+        <span class="botoes-excluindo">
+            <button (click)="alternarExclusao()">cancelar</button>
+            <button (click)="confirmarExclusao()">confirmar</button>
+        </span>
+    }
+
 </div>

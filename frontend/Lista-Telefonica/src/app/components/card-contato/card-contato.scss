@@ -11,7 +11,7 @@ $cor-botao-contato: #44ff44;
   display: flex;
   flex-direction: column;
 
-  * {
+  >* {
     margin: 3px;
   }
 }
@@ -34,5 +34,25 @@ $cor-botao-contato: #44ff44;
 
   &:hover {
     filter: brightness(0.8);
+  }
+}
+
+.modificacoes{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+
+  >*{
+    font-size: x-small;
+  }
+}
+
+.botoes-editando, .botoes-excluindo{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+
+  >*{
+    // font-size: x-small;
   }
 }
