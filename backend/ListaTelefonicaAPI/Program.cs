@@ -29,15 +29,15 @@ builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile));
 builder.Services.AddControllers();
 
 //// Configurar CORS para aceitar requisi��es de origem espec�fica
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("AllowAll", policy =>
-//    {
-//        policy.AllowAnyOrigin()
-//              .AllowAnyMethod()
-//              .AllowAnyHeader();
-//    });
-//});
+builder.Services.AddCors(options =>
+{
+   options.AddPolicy("AllowAll", policy =>
+   {
+       policy.AllowAnyOrigin()
+             .AllowAnyMethod()
+             .AllowAnyHeader();
+   });
+});
 
 // Swagger/OpenAPI para documenta��o da API
 builder.Services.AddEndpointsApiExplorer();
@@ -55,7 +55,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 //// Aplicar pol�tica de CORS
-//app.UseCors("AllowAll");
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
