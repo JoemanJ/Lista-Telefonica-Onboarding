@@ -10,4 +10,7 @@
     placeholder="(DDD) 99999 9999"
   />
   <button type="submit" [disabled]="!formulario.valid">Salvar Contato</button>
+  @if (errorMessage) {
+    <h3 class="erro">Erro ao adicionar o contato. Por favor tente novamente.</h3>
+  }
 </form>

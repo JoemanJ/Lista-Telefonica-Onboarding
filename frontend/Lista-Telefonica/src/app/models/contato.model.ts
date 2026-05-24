@@ -1,5 +1,16 @@
 export interface Contato {
-  // TODO: adicionar id ao contato (para put e delete) e mudar nos arquivos relevantes
+  id: number;
+  nome: string;
+  telefone: string;
+}
+
+export interface ContatoPostDTO {
+  nome: string;
+  telefone: string;
+}
+
+export interface ContatoPutDTO {
+  id: number;
   nome: string;
   telefone: string;
 }
