@@ -1,4 +1,4 @@
-﻿namespace ListaTelefonica.Models.DTOs
+﻿namespace ListaTelefonicaAPI.Models.DTOs
 {
     /// <summary>
     /// DTO para criação de um novo Contato (não expõe Id)

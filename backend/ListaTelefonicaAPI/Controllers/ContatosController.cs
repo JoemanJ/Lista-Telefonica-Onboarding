@@ -1,8 +1,8 @@
-﻿using ListaTelefonica.Models.DTOs;
-using ListaTelefonica.Services.Interfaces;
+﻿using ListaTelefonicaAPI.Models.DTOs;
+using ListaTelefonicaAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ListaTelefonica.Controllers
+namespace ListaTelefonicaAPI.Controllers
 {
     /// <summary>
     /// Controller que define os endpoints da API REST para Contatos

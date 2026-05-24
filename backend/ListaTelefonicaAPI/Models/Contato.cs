@@ -1,4 +1,4 @@
-﻿namespace ListaTelefonica.Models
+﻿namespace ListaTelefonicaAPI.Models
 {
     public class Contato
     {

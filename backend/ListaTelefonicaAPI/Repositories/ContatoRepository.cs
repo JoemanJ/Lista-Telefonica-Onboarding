@@ -1,9 +1,9 @@
-﻿using ListaTelefonica.Data;
-using ListaTelefonica.Models;
-using ListaTelefonica.Repositories.Interfaces;
+﻿using ListaTelefonicaAPI.Data;
+using ListaTelefonicaAPI.Models;
+using ListaTelefonicaAPI.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace ListaTelefonica.Repositories
+namespace ListaTelefonicaAPI.Repositories
 {
     /// <summary>
     /// Implementação do Repository Pattern para a entidade Contato

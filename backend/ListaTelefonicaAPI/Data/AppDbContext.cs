@@ -1,7 +1,7 @@
-﻿using ListaTelefonica.Models;
+﻿using ListaTelefonicaAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ListaTelefonica.Data
+namespace ListaTelefonicaAPI.Data
 {
     /// <summary>
     /// DbContext que representa o banco de dados e mapeia as entidades
