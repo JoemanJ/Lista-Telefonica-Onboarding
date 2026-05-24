@@ -14,13 +14,13 @@ namespace ListaTelefonicaAPI.Mappings
         public MappingProfile()
         {
             // Mapeamento de Contato para ContatoDto
-            CreateMap<Contato, ContatoDTO>().ReverseMap();
+            CreateMap<Contato, ContatoDto>().ReverseMap();
 
             // Mapeamento de CriarContatoDto para Contato
-            CreateMap<CriarContatoDTO, Contato>();
+            CreateMap<CriarContatoDto, Contato>();
 
             // Mapeamento de AtualizarContatoDto para Contato
-            CreateMap<AtualizarContatoDTO, Contato>();
+            CreateMap<AtualizarContatoDto, Contato>();
         }
     }
 }

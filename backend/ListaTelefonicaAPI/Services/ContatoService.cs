@@ -27,13 +27,13 @@ namespace ListaTelefonicaAPI.Services
         /// <summary>
         /// Obtém todos os contatos e mapeia para DTOs
         /// </summary>
-        public async Task<IEnumerable<ContatoDTO>> ObterTodosAsync()
+        public async Task<IEnumerable<ContatoDto>> ObterTodosAsync()
         {
             try
             {
                 _logger.LogInformation("Obtendo todos os contatos");
                 var contatos = await _contatoRepository.ObterTodosAsync();
-                return _mapper.Map<IEnumerable<ContatoDTO>>(contatos);
+                return _mapper.Map<IEnumerable<ContatoDto>>(contatos);
             }
             catch (Exception ex)
             {
@@ -45,7 +45,7 @@ namespace ListaTelefonicaAPI.Services
         /// <summary>
         /// Obtém um contato específico pelo Id
         /// </summary>
-        public async Task<ContatoDTO?> ObterPorIdAsync(int id)
+        public async Task<ContatoDto?> ObterPorIdAsync(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace ListaTelefonicaAPI.Services
                     return null;
                 }
 
-                return _mapper.Map<ContatoDTO>(contato);
+                return _mapper.Map<ContatoDto>(contato);
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace ListaTelefonicaAPI.Services
         /// <summary>
         /// Cria um novo contato com validações de negócio
         /// </summary>
-        public async Task<ContatoDTO> CriarAsync(CriarContatoDTO criarContatoDto)
+        public async Task<ContatoDto> CriarAsync(CriarContatoDto criarContatoDto)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace ListaTelefonicaAPI.Services
                 var contatoCriado = await _contatoRepository.CriarAsync(contato);
 
                 _logger.LogInformation($"Contato criado com sucesso. Id: {contatoCriado.Id}");
-                return _mapper.Map<ContatoDTO>(contatoCriado);
+                return _mapper.Map<ContatoDto>(contatoCriado);
             }
             catch (Exception ex)
             {
@@ -96,7 +96,7 @@ namespace ListaTelefonicaAPI.Services
         /// Atualiza um contato existente
         /// Método PUT - Idempotente
         /// </summary>
-        public async Task<ContatoDTO?> AtualizarAsync(int id, AtualizarContatoDTO atualizarContatoDTO)
+        public async Task<ContatoDto?> AtualizarAsync(int id, AtualizarContatoDto atualizarContatoDTO)
         {
             try
             {
@@ -117,7 +117,7 @@ namespace ListaTelefonicaAPI.Services
                 var contatoAtualizado = await _contatoRepository.AtualizarAsync(contatoExistente);
 
                 _logger.LogInformation($"Contato {id} atualizado com sucesso");
-                return _mapper.Map<ContatoDTO>(contatoAtualizado);
+                return _mapper.Map<ContatoDto>(contatoAtualizado);
             }
             catch (Exception ex)
             {

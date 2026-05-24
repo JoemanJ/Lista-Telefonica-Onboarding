@@ -8,10 +8,10 @@ namespace ListaTelefonicaAPI.Services.Interfaces
     /// </summary>
     public interface IContatoService
     {
-        Task<IEnumerable<ContatoDTO>> ObterTodosAsync();
-        Task<ContatoDTO?> ObterPorIdAsync(int id);
-        Task<ContatoDTO> CriarAsync(CriarContatoDTO criarContatoDto);
-        Task<ContatoDTO?> AtualizarAsync(int id, AtualizarContatoDTO atualizarContatoDto);
+        Task<IEnumerable<ContatoDto>> ObterTodosAsync();
+        Task<ContatoDto?> ObterPorIdAsync(int id);
+        Task<ContatoDto> CriarAsync(CriarContatoDto criarContatoDto);
+        Task<ContatoDto?> AtualizarAsync(int id, AtualizarContatoDto atualizarContatoDto);
         Task<bool> DeletarAsync(int id);
     }
 }

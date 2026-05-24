@@ -28,7 +28,7 @@ namespace ListaTelefonicaAPI.Controllers
         /// Retorna: Lista de todos os contatos
         /// </summary>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ContatoDTO>>> ObterTodos()
+        public async Task<ActionResult<IEnumerable<ContatoDto>>> ObterTodos()
         {
             _logger.LogInformation("GET /api/contatos - Listando todos os contatos");
             var contatos = await _contatoService.ObterTodosAsync();
@@ -42,7 +42,7 @@ namespace ListaTelefonicaAPI.Controllers
         /// Retorna: Um contato específico pelo Id
         /// </summary>
         [HttpGet("{id}")]
-        public async Task<ActionResult<ContatoDTO>> ObterPorId(int id)
+        public async Task<ActionResult<ContatoDto>> ObterPorId(int id)
         {
             _logger.LogInformation($"GET /api/contatos/{id} - Obtendo contato específico");
 
@@ -65,7 +65,7 @@ namespace ListaTelefonicaAPI.Controllers
         /// Retorna: O contato criado com seu Id gerado
         /// </summary>
         [HttpPost]
-        public async Task<ActionResult<ContatoDTO>> Criar([FromBody] CriarContatoDTO criarContatoDto)
+        public async Task<ActionResult<ContatoDto>> Criar([FromBody] CriarContatoDto criarContatoDto)
         {
             _logger.LogInformation($"POST /api/contatos - Criando novo contato");
 
@@ -95,7 +95,7 @@ namespace ListaTelefonicaAPI.Controllers
         /// Retorna: O contato atualizado
         /// </summary>
         [HttpPut("{id}")]
-        public async Task<ActionResult<ContatoDTO>> Atualizar(int id, [FromBody] AtualizarContatoDTO atualizarContatoDto)
+        public async Task<ActionResult<ContatoDto>> Atualizar(int id, [FromBody] AtualizarContatoDto atualizarContatoDto)
         {
             _logger.LogInformation($"PUT /api/contatos/{id} - Atualizando contato");
 
