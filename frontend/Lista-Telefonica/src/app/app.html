@@ -1,3 +1,3 @@
 <router-outlet />
-<app-lista-contatos class="lista-contatos"></app-lista-contatos>
-<app-form-contato class="formulario"></app-form-contato>
+<app-lista-contatos [contatos]="contatos()" (contatoExcluido)="atualizaContatos()" class="lista-contatos"></app-lista-contatos>
+<app-form-contato (contatoAdicionado)="atualizaContatos()" class="formulario"></app-form-contato>
