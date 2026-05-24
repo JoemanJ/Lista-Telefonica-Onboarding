@@ -1,21 +1,21 @@
-using ListaTelefonica.Data;
-using ListaTelefonica.Mappings;
-using ListaTelefonica.Repositories;
-using ListaTelefonica.Repositories.Interfaces;
-using ListaTelefonica.Services;
-using ListaTelefonica.Services.Interfaces;
+using ListaTelefonicaAPI.Data;
+using ListaTelefonicaAPI.Mappings;
+using ListaTelefonicaAPI.Repositories;
+using ListaTelefonicaAPI.Repositories.Interfaces;
+using ListaTelefonicaAPI.Services;
+using ListaTelefonicaAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuração de Logging
+// Configuraï¿½ï¿½o de Logging
 builder.Logging.AddConsole();
 
 // Adicionar DbContext ao container de DI
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//// Configuração centralizada via IOptions<T>
+//// Configuraï¿½ï¿½o centralizada via IOptions<T>
 //builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 // Registrar Services e Repositories com diferentes lifetimes
@@ -28,7 +28,7 @@ builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile));
 // Adicionar Controllers
 builder.Services.AddControllers();
 
-//// Configurar CORS para aceitar requisições de origem específica
+//// Configurar CORS para aceitar requisiï¿½ï¿½es de origem especï¿½fica
 //builder.Services.AddCors(options =>
 //{
 //    options.AddPolicy("AllowAll", policy =>
@@ -39,7 +39,7 @@ builder.Services.AddControllers();
 //    });
 //});
 
-// Swagger/OpenAPI para documentação da API
+// Swagger/OpenAPI para documentaï¿½ï¿½o da API
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -54,7 +54,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//// Aplicar política de CORS
+//// Aplicar polï¿½tica de CORS
 //app.UseCors("AllowAll");
 
 app.UseAuthorization();

@@ -1,6 +1,6 @@
-﻿using ListaTelefonica.Models;
+﻿using ListaTelefonicaAPI.Models;
 
-namespace ListaTelefonica.Repositories.Interfaces
+namespace ListaTelefonicaAPI.Repositories.Interfaces
 {
     /// <summary>
     /// Interface que define o contrato para operações de acesso a dados de Contatos

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using ListaTelefonica.Models;
-using ListaTelefonica.Models.DTOs;
-using ListaTelefonica.Repositories.Interfaces;
-using ListaTelefonica.Services.Interfaces;
+using ListaTelefonicaAPI.Models;
+using ListaTelefonicaAPI.Models.DTOs;
+using ListaTelefonicaAPI.Repositories.Interfaces;
+using ListaTelefonicaAPI.Services.Interfaces;
 
-namespace ListaTelefonica.Services
+namespace ListaTelefonicaAPI.Services
 {
     /// <summary>
     /// Implementação do Service Pattern para Contatos

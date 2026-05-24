@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using ListaTelefonica.Models;
-using ListaTelefonica.Models.DTOs;
+using ListaTelefonicaAPI.Models;
+using ListaTelefonicaAPI.Models.DTOs;
 
-namespace ListaTelefonica.Mappings
+namespace ListaTelefonicaAPI.Mappings
 /// <summary>
 /// Perfil de mapeamento AutoMapper
 /// Responsabilidade: Converter Entities em DTOs e vice-versa

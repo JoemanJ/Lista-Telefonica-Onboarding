@@ -1,6 +1,6 @@
-﻿using ListaTelefonica.Models.DTOs;
+﻿using ListaTelefonicaAPI.Models.DTOs;
 
-namespace ListaTelefonica.Services.Interfaces
+namespace ListaTelefonicaAPI.Services.Interfaces
 {
     /// <summary>
     /// Interface que define o contrato para operações de negócio de Contatos
