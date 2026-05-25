@@ -8,7 +8,7 @@ import { Contato, ContatoPostDTO, ContatoPutDTO } from '../models/contato.model'
 })
 export class ContatoService {
   private readonly httpClient = inject(HttpClient);
-  private readonly API_URL = 'https://localhost:7015/api/contatos';
+  private readonly API_URL = 'http://localhost:5167/api/contatos';
 
   getTodosContatos(): Observable<Contato[]> {
     return this.httpClient.get<Contato[]>(this.API_URL);
