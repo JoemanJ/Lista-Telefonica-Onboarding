@@ -13,14 +13,16 @@ export class FormContato {
   contatoService = inject(ContatoService);
   contatoAdicionado = output();
 
-  readonly regexTelefone = /^\(?([1-9]{2})\)? ?(?:9\d|[0-8])\d{3}-?\d{4}$/;
+  // readonly regexTelefone = /^\(?([1-9]{2})\)? ?(?:9\d|[0-8])\d{3}-?\d{4}$/;
   errorMessage: string = '';
 
   formulario = new FormGroup({
     nome: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     telefone: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.pattern(this.regexTelefone), Validators.required],
+      //TODO: corrigir validação de número de telefone
+      // validators: [Validators.pattern(this.regexTelefone), Validators.required],
+      validators: [Validators.required],
     }),
   });
 
