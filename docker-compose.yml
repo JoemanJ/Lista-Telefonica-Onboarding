@@ -1,0 +1,44 @@
+version: '1.0'
+ 
+services:
+ 
+  # --------------- BANCO DE DADOS ---------------
+  db:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: ContatoDB
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+ 
+  # --------------- BACKEND ---------------
+  backend:
+    build:
+      context: ./backend/ListaTelefonicaAPI
+      dockerfile: Dockerfile
+    container_name: backend_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=ContatoDB;Username=postgres;Password=admin
+    ports:
+      - "5167:8080"
+    depends_on:
+      - db
+ 
+  # --------------- FRONTEND ---------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+ 
+volumes:
+  postgres_data:
